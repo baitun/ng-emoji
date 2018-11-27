@@ -3,20 +3,20 @@
     <div class="logo">
     </div>
     <ul nz-menu [nzTheme]="'dark'" [nzMode]="'inline'" [nzInlineCollapsed]="isCollapsed">
-      <li nz-menu-item><span><i nz-icon type="user"></i><span class="nav-text">nav 1</span></span></li>
-      <li nz-menu-item><span><i nz-icon type="video-camera"></i><span class="nav-text">nav 2</span></span>
-      </li>
-      <li nz-menu-item><span><i nz-icon type="upload"></i><span class="nav-text">nav 3</span></span></li>
-      <li nz-menu-item><span><i nz-icon type="user"></i><span class="nav-text">nav 4</span></span></li>
+      <li nz-menu-item title="All"><span><i nz-icon type="ordered-list"></i><span class="nav-text">All</span></span></li>
+      <li nz-menu-item title="Favorite"><span><i nz-icon type="star"></i><span class="nav-text">Favorite</span></span></li>
+      <li nz-menu-item title="Deleted"><span><i nz-icon type="delete"></i><span class="nav-text">Deleted</span></span></li>
     </ul>
   </nz-sider>
   <nz-layout>
-    <nz-header style="background: #fff; padding:0;"></nz-header>
+    <nz-header style="background: #fff; padding: 0 24px;">
+      <h1>Emoji list</h1>
+    </nz-header>
     <nz-content style="margin:24px 16px 0;">
-      <div style="padding:24px; background: #fff; min-height: 100vh;">
+      <div style="padding:24px; background: #fff; min-height: calc(100vh - 64px - 69px - 24px);">
         Content
       </div>
     </nz-content>
-    <nz-footer style="text-align: center;">Ant Design ©2017 Implement By Angular</nz-footer>
+    <nz-footer style="text-align: center;">Made with ❤ in Irkutsk, near Lake Baikal</nz-footer>
   </nz-layout>
 </nz-layout>
