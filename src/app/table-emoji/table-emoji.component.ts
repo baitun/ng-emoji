@@ -2,7 +2,9 @@ import { Component } from '@angular/core';
 
 @Component({
   selector: 'app-table-emoji',
-  templateUrl: './table-emoji.component.html'
+  templateUrl: './table-emoji.component.html',
+  styleUrls: ['./table-emoji.component.css']
+
 })
 export class TableEmojiComponent {
   dataSet = [
