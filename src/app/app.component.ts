@@ -8,4 +8,5 @@ import { Component } from '@angular/core';
 export class AppComponent {
   title = 'ng-emoji';
   isCollapsed = false;
+  search_value: string;
 }
