@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
 import { Emoji } from '../emoji.model';
 
 @Component({
@@ -7,6 +7,8 @@ import { Emoji } from '../emoji.model';
   styleUrls: ['./table-emoji.component.css'],
 })
 export class TableEmojiComponent {
+  @Input() search_value: string;
+  page: string = 'all';
   emojis: Emoji[] = [
     {
       key: 1,
