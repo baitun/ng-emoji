@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { Emoji } from './emoji.model';
+import { Emoji } from '../emoji.model';
 
 @Injectable()
 export class EmojisService {

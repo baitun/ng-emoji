@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { Emoji } from './emoji.model';
+import { Emoji } from '../emoji.model';
 
 @Component({
   selector: 'app-table-emoji',
