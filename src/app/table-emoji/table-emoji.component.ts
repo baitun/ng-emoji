@@ -9,20 +9,21 @@ import { EmojiService } from '../emoji.service';
 })
 export class TableEmojiComponent {
   constructor(private emojiService: EmojiService) {}
-  @Input() search_value: string;
   @Input() path: string;
 
   emojis: Emoji[] = [];
+  emojisAll: Emoji[] = [];
   size = 'default';
   loading = true;
   getEmojis(): void {
     this.emojiService.getEmojis().subscribe(emojis => {
-      this.emojis = Object.entries(emojis).map(([name, link]) => ({
+      this.emojisAll = Object.entries(emojis).map(([name, link]) => ({
         name,
         link,
         isFavorite: false,
         isDeleted: false,
       }));
+      this.emojis = this.emojisAll;
       this.loading = false;
     });
   }
@@ -30,15 +31,25 @@ export class TableEmojiComponent {
     this.getEmojis();
   }
   onFavoriteClick(emoji: Emoji) {
-    console.log(emoji);
+    this.emojisAll = this.emojisAll.map(e =>
+      e === emoji ? { ...emoji, isFavorite: !emoji.isFavorite } : e
+    );
+    this.emojis = this.emojisAll;
   }
   onUnFavoriteClick(emoji: Emoji) {
-    console.log(emoji);
+    this.emojis = this.emojis.filter(e => e !== emoji);
   }
   onDeleteClick(emoji: Emoji) {
-    console.log(emoji);
+    this.emojis = this.emojis.filter(e => e !== emoji);
   }
   onRestoreClick(emoji: Emoji) {
-    console.log(emoji);
+    this.emojis = this.emojis.filter(e => e !== emoji);
+  }
+  onSearch(value) {
+    if (!value.trim()) this.emojis = this.emojisAll;
+    else
+      this.emojis = this.emojisAll.filter(
+        e => e.name.indexOf(value.toLowerCase()) > -1
+      );
   }
 }

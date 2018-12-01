@@ -9,7 +9,8 @@
           type="text"
           nz-input
           placeholder="Search emoji"
-          [(ngModel)]="search_value"
+          #searchBox
+          (input)="tableEmoji.onSearch(searchBox.value)"
         />
       </nz-input-group>
 
@@ -21,9 +22,6 @@
 </nz-header>
 <nz-content>
   <div class="content-wrapper">
-    <app-table-emoji
-      [search_value]="search_value"
-      [path]="path"
-    ></app-table-emoji>
+    <app-table-emoji #tableEmoji [path]="path"></app-table-emoji>
   </div>
 </nz-content>

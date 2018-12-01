@@ -10,7 +10,6 @@ import { Title } from '@angular/platform-browser';
 export class ContentComponent implements OnInit {
   constructor(private route: ActivatedRoute, private titleService: Title) {}
 
-  search_value: string;
   path: string;
   title: string;
 
