@@ -24,14 +24,41 @@
           [nzContent]="contentTemplate"
         />
       </td>
-      <td>
-        <button nz-button nzType="default" nzShape="circle">
-          <i nz-icon theme="{{data.isfavorite ? 'fill' : 'outline'}}" type="star"></i>
-        </button>
-        &nbsp;
-        <button nz-button nzType="default" nzShape="circle">
-          <i nz-icon theme="outline" type="delete"></i>
-        </button>
+      <td [ngSwitch]="path">
+        <span *ngSwitchCase="'all'">
+          <button
+            nz-button
+            title="Add to favorite"
+            nzType="default"
+            nzShape="circle"
+            (click)="onFavoriteClick(data)"
+          >
+            <i
+              nz-icon
+              theme="{{data.isFavorite ? 'fill' : 'outline'}}"
+              type="star"
+            ></i>
+          </button>
+          &nbsp;
+          <button nz-button title="Delete" nzType="default" nzShape="circle">
+            <i nz-icon theme="outline" type="delete"></i>
+          </button>
+        </span>
+        <span *ngSwitchCase="'favorite'">
+          <button
+            title="Remove from favorite"
+            nz-button
+            nzType="default"
+            nzShape="circle"
+          >
+            <i nz-icon theme="outline" type="delete"></i>
+          </button>
+        </span>
+        <span *ngSwitchCase="'deleted'">
+          <button title="Restore" nz-button nzType="default" nzShape="circle">
+            <i nz-icon theme="outline" type="undo"></i>
+          </button>
+        </span>
       </td>
     </tr>
   </tbody>
