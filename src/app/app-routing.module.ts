@@ -1,10 +1,16 @@
 import { NgModule } from '@angular/core';
-import { CommonModule } from '@angular/common';
+import { RouterModule, Routes } from '@angular/router';
+import { TableEmojiComponent } from './table-emoji/table-emoji.component';
+
+const routes: Routes = [
+  { path: '', component: TableEmojiComponent, pathMatch: 'full' },
+  { path: 'favorite', component: TableEmojiComponent },
+  { path: 'deleted', component: TableEmojiComponent },
+  { path: '**', redirectTo: '/' },
+];
 
 @NgModule({
-  declarations: [],
-  imports: [
-    CommonModule
-  ]
+  imports: [RouterModule.forRoot(routes)],
+  exports: [RouterModule],
 })
-export class AppRoutingModule { }
+export class AppRoutingModule {}
