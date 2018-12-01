@@ -8,7 +8,13 @@
   </nz-radio-group>
   <br /><br />
 -->
-<nz-table #basicTable [nzData]="emojis" [nzSize]="size" [nzLoading]="loading">
+<nz-table
+  #basicTable
+  [nzData]="emojis"
+  [nzSize]="size"
+  [nzLoading]="loading"
+  nzLoadingDelay="20"
+>
   <thead>
     <tr>
       <th>Name</th>
@@ -49,7 +55,13 @@
             ></i>
           </button>
           &nbsp;
-          <button nz-button title="Delete" nzType="default" nzShape="circle">
+          <button
+            nz-button
+            title="Delete"
+            nzType="default"
+            nzShape="circle"
+            (click)="onDeleteClick(data)"
+          >
             <i nz-icon theme="outline" type="delete"></i>
           </button>
         </span>
@@ -59,12 +71,19 @@
             nz-button
             nzType="default"
             nzShape="circle"
+            (click)="onUnFavoriteClick(data)"
           >
             <i nz-icon theme="outline" type="delete"></i>
           </button>
         </span>
         <span *ngSwitchCase="'deleted'">
-          <button title="Restore" nz-button nzType="default" nzShape="circle">
+          <button
+            title="Restore"
+            nz-button
+            nzType="default"
+            nzShape="circle"
+            (click)="onRestoreClick(data)"
+          >
             <i nz-icon theme="outline" type="undo"></i>
           </button>
         </span>

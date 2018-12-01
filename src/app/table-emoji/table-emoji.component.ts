@@ -12,7 +12,7 @@ export class TableEmojiComponent {
   @Input() search_value: string;
   @Input() path: string;
 
-  emojis: Emoji[];
+  emojis: Emoji[] = [];
   size = 'default';
   loading = true;
   getEmojis(): void {
@@ -29,7 +29,16 @@ export class TableEmojiComponent {
   ngOnInit() {
     this.getEmojis();
   }
-  onFavoriteClick(d) {
-    console.log(d);
+  onFavoriteClick(emoji: Emoji) {
+    console.log(emoji);
+  }
+  onUnFavoriteClick(emoji: Emoji) {
+    console.log(emoji);
+  }
+  onDeleteClick(emoji: Emoji) {
+    console.log(emoji);
+  }
+  onRestoreClick(emoji: Emoji) {
+    console.log(emoji);
   }
 }
