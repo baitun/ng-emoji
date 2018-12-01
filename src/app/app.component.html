@@ -1,33 +1,31 @@
 <nz-layout>
   <nz-sider nzCollapsible [(nzCollapsed)]="isCollapsed" [nzBreakpoint]="'lg'">
-    <ul nz-menu [nzTheme]="'dark'" [nzMode]="'inline'" [nzInlineCollapsed]="isCollapsed">
-      <li nz-menu-item title="All"><a routerLink="/"><i nz-icon type="ordered-list"></i><span class="nav-text">All</span></a></li>
-      <li nz-menu-item title="Favorite"><a routerLink="favorite"><i nz-icon type="star"></i><span class="nav-text">Favorite</span></a></li>
-      <li nz-menu-item title="Deleted"><a routerLink="deleted"><i nz-icon type="delete"></i><span class="nav-text">Deleted</span></a></li>
+    <ul
+      nz-menu
+      [nzTheme]="'dark'"
+      [nzMode]="'inline'"
+      [nzInlineCollapsed]="isCollapsed"
+    >
+      <li nz-menu-item title="All">
+        <a routerLink="/"
+          ><i nz-icon type="ordered-list"></i
+          ><span class="nav-text">All</span></a
+        >
+      </li>
+      <li nz-menu-item title="Favorite">
+        <a routerLink="favorite"
+          ><i nz-icon type="star"></i><span class="nav-text">Favorite</span></a
+        >
+      </li>
+      <li nz-menu-item title="Deleted">
+        <a routerLink="deleted"
+          ><i nz-icon type="delete"></i><span class="nav-text">Deleted</span></a
+        >
+      </li>
     </ul>
   </nz-sider>
   <nz-layout>
-    <nz-header>
-      <div nz-row>
-        <div nz-col nzSpan="14">
-          <h1>{{title}}</h1>
-        </div>
-        <div nz-col nzSpan="10">
-          <nz-input-group [nzSuffix]="suffixIconSearch">
-            <input type="text" nz-input placeholder="Search emoji" [(ngModel)]="search_value">
-          </nz-input-group>
-      
-          <ng-template #suffixIconSearch>
-            <i nz-icon type="search"></i>
-          </ng-template>
-        </div>
-      </div>
-    </nz-header>
-    <nz-content>
-      <div class="content-wrapper">
-        <router-outlet></router-outlet>
-      </div>
-    </nz-content>
+    <router-outlet></router-outlet>
     <nz-footer>Made with ❤ in Irkutsk, near Lake Baikal</nz-footer>
   </nz-layout>
 </nz-layout>

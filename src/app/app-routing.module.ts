@@ -1,11 +1,11 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { TableEmojiComponent } from './table-emoji/table-emoji.component';
+import { ContentComponent } from './content/content.component';
 
 const routes: Routes = [
-  { path: '', component: TableEmojiComponent, pathMatch: 'full' },
-  { path: 'favorite', component: TableEmojiComponent },
-  { path: 'deleted', component: TableEmojiComponent },
+  { path: '', component: ContentComponent, pathMatch: 'full' },
+  { path: 'favorite', component: ContentComponent },
+  { path: 'deleted', component: ContentComponent },
   { path: '**', redirectTo: '/' },
 ];
 

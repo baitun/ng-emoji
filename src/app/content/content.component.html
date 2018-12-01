@@ -1,0 +1,29 @@
+<nz-header>
+  <div nz-row>
+    <div nz-col nzSpan="14">
+      <h1>{{ title }}</h1>
+    </div>
+    <div nz-col nzSpan="10">
+      <nz-input-group [nzSuffix]="suffixIconSearch">
+        <input
+          type="text"
+          nz-input
+          placeholder="Search emoji"
+          [(ngModel)]="search_value"
+        />
+      </nz-input-group>
+
+      <ng-template #suffixIconSearch>
+        <i nz-icon type="search"></i>
+      </ng-template>
+    </div>
+  </div>
+</nz-header>
+<nz-content>
+  <div class="content-wrapper">
+    <app-table-emoji
+      [search_value]="search_value"
+      [path]="path"
+    ></app-table-emoji>
+  </div>
+</nz-content>
