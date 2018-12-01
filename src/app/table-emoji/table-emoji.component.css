@@ -1,0 +1,7 @@
+.preview {
+  filter: grayscale(25%);
+}
+
+.preview.favorite, .preview:hover {
+  filter: grayscale(0);
+}

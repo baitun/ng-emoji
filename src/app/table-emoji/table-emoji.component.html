@@ -37,6 +37,8 @@
           nz-popover
           nzPlacement="left"
           [nzContent]="contentTemplate"
+          class="preview"
+          [class.favorite]="data.isFavorite"
         />
       </td>
       <td [ngSwitch]="path">
