@@ -13,8 +13,18 @@ export class TableEmojiComponent {
   @Input() path: string;
 
   emojis: Emoji[];
+  size = 'default';
+  loading = true;
   getEmojis(): void {
-    this.emojiService.getEmojis().subscribe(emojis => (this.emojis = emojis));
+    this.emojiService.getEmojis().subscribe(emojis => {
+      this.emojis = Object.entries(emojis).map(([name, link]) => ({
+        name,
+        link,
+        isFavorite: false,
+        isDeleted: false,
+      }));
+      this.loading = false;
+    });
   }
   ngOnInit() {
     this.getEmojis();

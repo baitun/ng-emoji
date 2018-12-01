@@ -1,5 +1,14 @@
 <div *ngIf="search_value">Filtred: {{ search_value }}</div>
-<nz-table #basicTable [nzData]="emojis">
+<!--
+  <label for="">Table size: </label>
+  <nz-radio-group [(ngModel)]="size" name="size">
+    <label nz-radio-button nzValue="default">Default</label>
+    <label nz-radio-button nzValue="middle">Middle</label>
+    <label nz-radio-button nzValue="small">Small</label>
+  </nz-radio-group>
+  <br /><br />
+-->
+<nz-table #basicTable [nzData]="emojis" [nzSize]="size" [nzLoading]="loading">
   <thead>
     <tr>
       <th>Name</th>
