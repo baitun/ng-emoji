@@ -1,5 +1,6 @@
 import { Component, Input } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
+import { Title } from '@angular/platform-browser';
 import { Emoji } from '../emoji.model';
 import { EmojiService } from '../emoji.service';
 
@@ -11,7 +12,8 @@ import { EmojiService } from '../emoji.service';
 export class TableEmojiComponent {
   constructor(
     private emojiService: EmojiService,
-    private route: ActivatedRoute
+    private route: ActivatedRoute,
+    private titleService: Title
   ) {}
   @Input() search_value: string;
   path: string = 'all';
@@ -21,7 +23,9 @@ export class TableEmojiComponent {
   }
   ngOnInit() {
     this.path = this.route.snapshot.routeConfig.path || 'all';
-    console.log('path=', this.path);
+    let title =
+      this.path.charAt(0).toUpperCase() + this.path.slice(1) + ' GitHub Emoji';
+    this.titleService.setTitle(title);
     this.getEmojis();
   }
   onFavoriteClick(d) {

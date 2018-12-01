@@ -1,4 +1,4 @@
-import { BrowserModule } from '@angular/platform-browser';
+import { BrowserModule, Title } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 
 import { AppComponent } from './app.component';
@@ -14,19 +14,16 @@ import { AppRoutingModule } from './app-routing.module';
 registerLocaleData(en);
 
 @NgModule({
-  declarations: [
-    AppComponent,
-    TableEmojiComponent
-  ],
+  declarations: [AppComponent, TableEmojiComponent],
   imports: [
     BrowserModule,
     BrowserAnimationsModule,
     FormsModule,
     HttpClientModule,
     NgZorroAntdModule,
-    AppRoutingModule
+    AppRoutingModule,
   ],
-  providers: [{ provide: NZ_I18N, useValue: en_US }],
-  bootstrap: [AppComponent]
+  providers: [{ provide: NZ_I18N, useValue: en_US }, Title],
+  bootstrap: [AppComponent],
 })
-export class AppModule { }
+export class AppModule {}
