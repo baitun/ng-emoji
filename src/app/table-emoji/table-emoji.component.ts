@@ -13,8 +13,7 @@ export class TableEmojiComponent {
   page: string = 'all';
   emojis: Emoji[];
   getEmojis(): void {
-    console.log('TableEmojiComponent.getEmojis');
-    this.emojis = this.emojiService.getEmojis();
+    this.emojiService.getEmojis().subscribe(emojis => (this.emojis = emojis));
   }
   ngOnInit() {
     this.getEmojis();

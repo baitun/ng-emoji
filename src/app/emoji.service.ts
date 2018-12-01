@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
 import { Emoji } from './emoji.model';
+import { Observable, of } from 'rxjs';
 
 const EMOJIS = [
   {
@@ -34,7 +35,7 @@ const EMOJIS = [
 export class EmojiService {
   constructor() {}
 
-  getEmojis(): Emoji[] {
-    return EMOJIS;
+  getEmojis(): Observable<Emoji[]> {
+    return of(EMOJIS);
   }
 }
