@@ -10,11 +10,12 @@ import { registerLocaleData } from '@angular/common';
 import en from '@angular/common/locales/en';
 import { TableEmojiComponent } from './table-emoji/table-emoji.component';
 import { AppRoutingModule } from './app-routing.module';
+import { ContentComponent } from './content/content.component';
 
 registerLocaleData(en);
 
 @NgModule({
-  declarations: [AppComponent, TableEmojiComponent],
+  declarations: [AppComponent, TableEmojiComponent, ContentComponent],
   imports: [
     BrowserModule,
     BrowserAnimationsModule,
