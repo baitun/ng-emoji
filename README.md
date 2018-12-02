@@ -4,6 +4,6 @@
 
 ## ✨ Features
 
-* Fetch emoji from https://api.github.com/emojis
+* Fetch emojis from https://api.github.com/emojis
 * State persists when page reloads
-* Search by name emotions
+* Search by name of emoji

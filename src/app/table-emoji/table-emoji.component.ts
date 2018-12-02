@@ -1,4 +1,4 @@
-import { Component, Input } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { Emoji } from '../emoji.model';
 import { EmojiService } from '../emoji.service';
 
@@ -7,7 +7,7 @@ import { EmojiService } from '../emoji.service';
   templateUrl: './table-emoji.component.html',
   styleUrls: ['./table-emoji.component.css'],
 })
-export class TableEmojiComponent {
+export class TableEmojiComponent implements OnInit {
   constructor(private emojiService: EmojiService) {}
   @Input() path: string;
 
@@ -15,7 +15,7 @@ export class TableEmojiComponent {
   emojisAll: Emoji[] = [];
   size = 'default';
   loading = false;
-  searchValue: string = '';
+  searchValue = '';
   getEmojisFirstTime(): void {
     this.loading = true;
     localStorage.clear();
@@ -32,14 +32,18 @@ export class TableEmojiComponent {
     });
   }
   ngOnInit() {
-    let emojisFromLS = localStorage.getItem('emojis');
-    if (!emojisFromLS) this.getEmojisFirstTime();
-    else this.emojisAll = JSON.parse(emojisFromLS);
+    const emojisFromLS = localStorage.getItem('emojis');
+    if (!emojisFromLS) {
+      this.getEmojisFirstTime();
+    } else {
+      this.emojisAll = JSON.parse(emojisFromLS);
+    }
     this.emojis = this.getFiltred();
   }
   getFiltred(): Emoji[] {
     return this.emojisAll.filter(e => {
-      let searchCondition = e.name.indexOf(this.searchValue.toLowerCase()) > -1;
+      const searchCondition =
+        e.name.indexOf(this.searchValue.toLowerCase()) > -1;
       switch (this.path) {
         case 'all':
           return !e.isDeleted && searchCondition;
@@ -50,7 +54,7 @@ export class TableEmojiComponent {
       }
     });
   }
-  onFavoriteClick(emojiSelected: Emoji) {
+  onFavoriteToggle(emojiSelected: Emoji) {
     this.emojisAll = this.emojisAll.map(emoji =>
       emoji === emojiSelected
         ? { ...emoji, isFavorite: !emoji.isFavorite }
@@ -59,15 +63,13 @@ export class TableEmojiComponent {
     localStorage.setItem('emojis', JSON.stringify(this.emojisAll));
     this.emojis = this.getFiltred();
   }
-  onUnFavoriteClick = this.onFavoriteClick;
-  onDeleteClick(emojiSelected: Emoji) {
+  onDeleteToggle(emojiSelected: Emoji) {
     this.emojisAll = this.emojisAll.map(e =>
       e === emojiSelected ? { ...e, isDeleted: !e.isDeleted } : e
     );
     localStorage.setItem('emojis', JSON.stringify(this.emojisAll));
     this.emojis = this.getFiltred();
   }
-  onRestoreClick = this.onDeleteClick;
   onSearch(value) {
     this.searchValue = value;
     this.emojis = this.getFiltred();
