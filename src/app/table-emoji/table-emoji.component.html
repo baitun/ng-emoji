@@ -11,6 +11,7 @@
   #basicTable
   [nzData]="emojis"
   [nzSize]="size"
+  [nzPageSize]="10"
   [nzLoading]="loading"
   nzLoadingDelay="20"
 >
@@ -31,7 +32,7 @@
       <td style="text-align: center">
         <ng-template #contentTemplate><img src="{{data.link}}"/></ng-template>
         <img
-          width="24"
+          width="25"
           src="{{data.link}}"
           nz-popover
           nzPlacement="left"

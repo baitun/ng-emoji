@@ -4,11 +4,11 @@ nz-header {
 }
 
 nz-content {
-  margin: 24px 16px 0;
+  margin: 16px 16px 0;
 }
 
 .content-wrapper {
-  padding: 24px;
+  padding: 16px 16px 0;
   background: #fff;
-  min-height: calc(100vh - 64px - 69px - 24px);
+  min-height: calc(100vh - 64px - 69px - 16px);
 }

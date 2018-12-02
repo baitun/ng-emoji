@@ -1,6 +1,10 @@
 {
   "name": "ng-emoji",
-  "version": "0.0.0",
+  "author": {
+    "name": "Yury Savin",
+    "url": "https://savinyurii.ru"
+  },
+  "homepage": "https://github.com/baitun/ng-emoji",
   "scripts": {
     "ng": "ng",
     "start": "ng serve --open",
@@ -8,7 +12,7 @@
     "test": "ng test",
     "lint": "ng lint",
     "e2e": "ng e2e",
-    "predeploy": "ng build --prod --base-href ng-emoji",
+    "predeploy": "ng build --prod --base-href https://baitun.github.io/ng-emoji/",
     "deploy": "gh-pages -d dist/ng-emoji/"
   },
   "private": true,
