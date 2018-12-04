@@ -6,11 +6,15 @@
     <div nz-col nzSpan="10">
       <nz-input-group [nzSuffix]="suffixIconSearch">
         <input
-          type="text"
-          nz-input
-          placeholder="Search emoji"
           #searchBox
+          nz-input
           (input)="tableEmoji.onSearch(searchBox.value)"
+          type="search"
+          placeholder="Search emoji"
+          aria-label="Search emoji"
+          autofocus="true"
+          accesskey="s"
+          spellcheck="false"
         />
       </nz-input-group>
 
