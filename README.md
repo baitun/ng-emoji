@@ -10,6 +10,6 @@
 * State persists when page reloads (data is stored in localstorage)
 * Search by name of emoji
 
-## Initial task
+## 📄 Initial task
 
 [Текст задания на Русском языке](./task_RU.md)
